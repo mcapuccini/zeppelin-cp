@@ -1,0 +1,671 @@
+{
+  "paragraphs": [
+    {
+      "title": "",
+      "text": "%md\n# Conformal Prediction with Spark MLlib",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eConformal Prediction with Spark MLlib\u003c/h1\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496224_432457630",
+      "id": "20170529-112837_702913117",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Load Scala-CP\nGitHub link: https://github.com/mcapuccini/scala-cp",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 50.60000228881836,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eLoad Scala-CP\u003c/h3\u003e\n\u003cp\u003eGitHub link: \u003ca href\u003d\"https://github.com/mcapuccini/scala-cp\"\u003ehttps://github.com/mcapuccini/scala-cp\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496237_427455895",
+      "id": "20170529-123141_193191448",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark.dep\nz.load(\"se.uu.it:cp:0.1.0\")",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 89.5999984741211,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496237_427455895",
+      "id": "20170529-113351_1214753120",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Import classes",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eImport classes\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496238_428610141",
+      "id": "20170529-123705_143271835",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark\nimport org.apache.spark.mllib.classification.SVMWithSGD\nimport org.apache.spark.mllib.linalg.Vectors\nimport org.apache.spark.mllib.regression.LabeledPoint\nimport org.apache.spark.mllib.util.MLUtils\nimport org.apache.spark.rdd.RDD\nimport se.uu.it.cp.UnderlyingAlgorithm\nimport se.uu.it.cp.ICP",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496238_428225392",
+      "id": "20170529-114310_1385148156",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Get a dataset\nBreast cancer dataset: https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#breast-cancer",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eGet a dataset\u003c/h3\u003e\n\u003cp\u003eBreast cancer dataset: \u003ca href\u003d\"https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#breast-cancer\"\u003ehttps://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary.html#breast-cancer\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496239_428225392",
+      "id": "20170529-123750_342127319",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%sh\nwget https://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/binary/breast-cancer_scale",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496240_438613613",
+      "id": "20170529-112702_1784517362",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Load and split the data ",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eLoad and split the data\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496240_438613613",
+      "id": "20170529-123955_987515333",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark\n// Load and split data\nval data \u003d MLUtils.loadLibSVMFile(sc, \"breast-cancer_scale\")\n    .map(p \u003d\u003e new LabeledPoint(if(p.label \u003d\u003d 2) 0 else 1,p.features))\nval Array(trainingSet,testSet) \u003d data.randomSplit(Array(0.8, 0.2))\nval Array(properTrainingSet,calibrationSet) \u003d trainingSet.randomSplit(Array(0.7,0.3))",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496241_438228864",
+      "id": "20170529-112715_2093134776",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Define an underlyig algorithm (with Scala-CP)",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eDefine an underlyig algorithm (with Scala-CP)\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496242_439383111",
+      "id": "20170529-124045_1254044030",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark\nval mllibAlg \u003d new UnderlyingAlgorithm[LabeledPoint]() {\n\n  // First describe how to access Spark\u0027s LabeledPoint structure \n  override def makeDataPoint(features: Seq[Double], label: Double) \u003d\n    new LabeledPoint(label, Vectors.dense(features.toArray))\n  override def getDataPointFeatures(lp: LabeledPoint) \u003d lp.features.toArray\n  override def getDataPointLabel(lp: LabeledPoint) \u003d lp.label\n\n  // Train a SVM model\n  private lazy val svmModel \u003d {\n    // Train with SVMWithSGD\n    val svmModel \u003d SVMWithSGD.train(properTrainingSet.cache, numIterations \u003d 100)\n    svmModel.clearThreshold // set to return distance from hyperplane\n    svmModel\n  }\n\n  // Define nonconformity measure as signed distance from the dividing hyperplane\n  override def nonConformityMeasure(lp: LabeledPoint) \u003d {\n    if (lp.label \u003d\u003d 1.0) {\n      -svmModel.predict(lp.features)\n    } else {\n      svmModel.predict(lp.features)\n    }\n  }\n  \n}",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496243_438998362",
+      "id": "20170529-113623_163223245",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Train an inductive conformal classifier (with Scala-CP)",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eTrain an inductive conformal classifier (with Scala-CP)\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496243_438998362",
+      "id": "20170529-124240_483821609",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark\nval cp \u003d ICP.trainClassifier(mllibAlg, nOfClasses \u003d 2, calibrationSet.collect)",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496244_437074617",
+      "id": "20170529-115033_1507495176",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%md\n### Make predictions and create a SQL view",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eMake predictions and create a SQL view\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496244_437074617",
+      "id": "20170529-124310_1742426173",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%spark\ncase class Prediction(sig: Double, predSet: String, isCorrect: Boolean)\nval sigs \u003d (1 to 99).map(_.toDouble / 100)\ntestSet.flatMap { example \u003d\u003e\n    sigs.map { significance \u003d\u003e\n        val predSet \u003d cp.predict(example.features.toArray,significance)\n        Prediction(significance, predSet.toString, predSet.contains(example.label))   \n    }\n}\n.toDF\n.createOrReplaceTempView(\"predictions\")",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496245_436689868",
+      "id": "20170529-115432_33369446",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%sql\nSELECT sig, (COUNT(*)/(SELECT COUNT(*) FROM predictions WHERE sig\u003d\u003d0.1)) as error\nFROM predictions\nWHERE isCorrect \u003d false\nGROUP BY sig\nORDER BY sig",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "lineChart": {
+                  "forceY": true,
+                  "lineWithFocus": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "sig",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "error",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sig\terror\n0.04\t0.00847457627118644\n0.05\t0.00847457627118644\n0.06\t0.00847457627118644\n0.07\t0.00847457627118644\n0.08\t0.01694915254237288\n0.09\t0.01694915254237288\n0.1\t0.01694915254237288\n0.11\t0.01694915254237288\n0.12\t0.05084745762711865\n0.13\t0.07627118644067797\n0.14\t0.07627118644067797\n0.15\t0.0847457627118644\n0.16\t0.11016949152542373\n0.17\t0.11016949152542373\n0.18\t0.1271186440677966\n0.19\t0.1271186440677966\n0.2\t0.1440677966101695\n0.21\t0.1440677966101695\n0.22\t0.16101694915254236\n0.23\t0.2033898305084746\n0.24\t0.211864406779661\n0.25\t0.2288135593220339\n0.26\t0.2288135593220339\n0.27\t0.23728813559322035\n0.28\t0.23728813559322035\n0.29\t0.23728813559322035\n0.3\t0.2711864406779661\n0.31\t0.2711864406779661\n0.32\t0.2796610169491525\n0.33\t0.288135593220339\n0.34\t0.288135593220339\n0.35\t0.3050847457627119\n0.36\t0.3135593220338983\n0.37\t0.3220338983050847\n0.38\t0.3474576271186441\n0.39\t0.3474576271186441\n0.4\t0.3474576271186441\n0.41\t0.3898305084745763\n0.42\t0.3898305084745763\n0.43\t0.3983050847457627\n0.44\t0.3983050847457627\n0.45\t0.4067796610169492\n0.46\t0.4491525423728814\n0.47\t0.4661016949152542\n0.48\t0.4830508474576271\n0.49\t0.5084745762711864\n0.5\t0.5169491525423728\n0.51\t0.5254237288135594\n0.52\t0.5338983050847458\n0.53\t0.5423728813559322\n0.54\t0.5423728813559322\n0.55\t0.559322033898305\n0.56\t0.576271186440678\n0.57\t0.5847457627118644\n0.58\t0.6016949152542372\n0.59\t0.6016949152542372\n0.6\t0.6016949152542372\n0.61\t0.6016949152542372\n0.62\t0.6016949152542372\n0.63\t0.6016949152542372\n0.64\t0.6186440677966102\n0.65\t0.6186440677966102\n0.66\t0.6271186440677966\n0.67\t0.635593220338983\n0.68\t0.635593220338983\n0.69\t0.652542372881356\n0.7\t0.6694915254237288\n0.71\t0.6779661016949152\n0.72\t0.6779661016949152\n0.73\t0.711864406779661\n0.74\t0.711864406779661\n0.75\t0.711864406779661\n0.76\t0.7203389830508474\n0.77\t0.7203389830508474\n0.78\t0.7203389830508474\n0.79\t0.7203389830508474\n0.8\t0.7203389830508474\n0.81\t0.7203389830508474\n0.82\t0.7372881355932204\n0.83\t0.7372881355932204\n0.84\t0.7627118644067796\n0.85\t0.7796610169491526\n0.86\t0.8135593220338984\n0.87\t0.8135593220338984\n0.88\t0.8220338983050848\n0.89\t0.8305084745762712\n0.9\t0.8813559322033898\n0.91\t0.8813559322033898\n0.92\t0.940677966101695\n0.93\t0.940677966101695\n0.94\t0.9745762711864406\n0.95\t0.9745762711864406\n0.96\t0.9830508474576272\n0.97\t0.9915254237288136\n0.98\t1.0\n0.99\t1.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496245_436689868",
+      "id": "20170529-120048_1068416742",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%sql\nSELECT sig, predSet, COUNT(*) as count\nFROM predictions\nWHERE sig \u003e\u003d 0.01 AND sig \u003c\u003d 0.1\nGROUP BY sig, predSet\nORDER BY sig",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "sig",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "predSet",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sig\tpredSet\tcount\n0.01\tSet(0.0, 1.0)\t118\n0.02\tSet(1.0)\t34\n0.02\tSet(0.0, 1.0)\t84\n0.03\tSet(0.0)\t71\n0.03\tSet(0.0, 1.0)\t9\n0.03\tSet(1.0)\t38\n0.04\tSet(0.0)\t71\n0.04\tSet(1.0)\t47\n0.05\tSet(0.0)\t71\n0.05\tSet(1.0)\t47\n0.06\tSet(1.0)\t47\n0.06\tSet(0.0)\t71\n0.07\tSet(1.0)\t47\n0.07\tSet(0.0)\t71\n0.08\tSet()\t1\n0.08\tSet(1.0)\t47\n0.08\tSet(0.0)\t70\n0.09\tSet(0.0)\t70\n0.09\tSet()\t1\n0.09\tSet(1.0)\t47\n0.1\tSet()\t1\n0.1\tSet(1.0)\t47\n0.1\tSet(0.0)\t70\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496246_437844115",
+      "id": "20170529-115926_322054066",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%sql\n",
+      "dateUpdated": "Jun 14, 2017 12:48:16 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1497444496246_437844115",
+      "id": "20170529-120926_721585773",
+      "dateCreated": "Jun 14, 2017 12:48:16 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Conformal Prediction with Spark MLlib",
+  "id": "2CN979YW3",
+  "angularObjects": {
+    "2CJ87MTW5:shared_process": [],
+    "2CJT9FGKV:shared_process": [],
+    "2CMXG8TAU:shared_process": [],
+    "2CN1DM7GM:shared_process": [],
+    "2CK4H953S:shared_process": [],
+    "2CJ94K1ZC:shared_process": [],
+    "2CKYSBAC8:shared_process": [],
+    "2CKUFKWD2:shared_process": [],
+    "2CJANMZ3W:shared_process": []
+  },
+  "config": {
+    "looknfeel": "simple",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}
